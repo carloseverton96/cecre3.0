@@ -1,0 +1,45 @@
+Antes de rodar os projetos, tanto a API quanto o Mobile,
+não esqueça de executar o "npm install" para o node
+recriar a pasta node_modules. OK?
+
+
+
+iniciar com npm install
+
+
+passo 1: npm create vite@latest "nome"
+passo 2: opção > react
+passo 3: opção > javascript
+passo 4: adiciona a o comando a seguir na área de SCRIPT no PACKAGE.JSON "start": "vite"
+passo 5: "npm instal" e inicia com "npm start"
+
+passo 6: cria a pasta api, paralelo com a web e insere as informações do package.json conforme abaixo.
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "bcrypt": "^5.1.1",
+    "better-sqlite3": "^12.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
+
+passo 7: npm install
+passo 8: npm install --save-dev nodemon
+
+passo 9: cria a pasta src e inicia a codar o index
+
+
