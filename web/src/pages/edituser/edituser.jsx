@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import fundo from "../../assets/fundo.png";
 import api from "../../constants/api.js";
 import "../../styles/global.css"
 
@@ -54,7 +53,7 @@ function EditUser() {
         <div className="row">
             <div className="col-sm-5 d-flex justify-content-center align-items-center text-center">
                 <form className="form-signin">
-                    <img src={logo} alt="Logo" className="logo mb-4" />
+                    <img src={logo} alt="logo" className="logo mb-4" />
                     <h5 className="mb-5">Edite os dados do usuário.</h5>
                     <h5 className="mb-4 text-secondary">Atualize os campos abaixo</h5>
 
@@ -96,7 +95,7 @@ function EditUser() {
             </div>
 
             <div className="col-sm-7">
-                <img src={fundo} alt="Fundo" className="background-login" />
+                <img src={logo} alt="logo" className="background-login" />
             </div>
         </div>
     );

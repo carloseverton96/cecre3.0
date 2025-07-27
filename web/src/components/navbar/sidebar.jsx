@@ -29,6 +29,8 @@ export default function Sidebar() {
     { to: "/mediunicas", label: "Mediúnicas", icon: <Package size={20} /> },
     { to: "/publicas", label: "Públicas", icon: <Settings size={20} /> },
     { to: "/sociais", label: "Sociais", icon: <User size={20} /> },
+    { to: "/news", label: "Noticias", icon: <User size={20} /> },
+    { to: "/login", label: "Login", icon: <Settings size={20} /> },
   ];
 
   return (
@@ -39,7 +41,7 @@ export default function Sidebar() {
           onClick={() => setCollapsed(!collapsed)}
           style={{
             float: "right",
-            background: "none",
+            background: "#8dc8ffff",
             border: "none",
             color: "inherit",
             cursor: "pointer",
@@ -57,7 +59,7 @@ export default function Sidebar() {
               key={to}
               to={to}
               style={{
-                color: isActive ? "#38bdf8" : "black",
+                color: isActive ? "#b2e1f5ff" : "#5e5e5eff",
                 fontWeight: isActive ? "bold" : "normal",
               }}
             >
