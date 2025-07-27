@@ -1,10 +1,9 @@
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import "./users.css";
-import Navbar from "../../components/navbar/navbar.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import api from "../../constants/api.js";
 import { confirmAlert } from "react-confirm-alert";
+import "../../styles/global.css"
 
 function Users() {
     const navigate = useNavigate();
@@ -69,7 +68,7 @@ function Users() {
 
     return (
         <div className="container-fluid mt-page">
-            <Navbar />
+            
             <div className="d-flex justify-content-between align-items-center">
                 <div>
                     <h2 className="d-inline">Usuários</h2>

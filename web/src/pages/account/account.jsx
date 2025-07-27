@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import fundo from "../../assets/fundo.png";
 import api from "../../constants/api.js";
-import "./account.css"; // Use o estilo em CSS para facilitar
+import "../../styles/global.css"
+
 
 function Account() {
     const [name, setName] = useState("");

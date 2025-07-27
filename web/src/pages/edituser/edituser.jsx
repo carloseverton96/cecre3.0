@@ -3,7 +3,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import fundo from "../../assets/fundo.png";
 import api from "../../constants/api.js";
-import "./edituser.css"; // Use o mesmo estilo em CSS para manter consistência
+import "../../styles/global.css"
+
 
 function EditUser() {
     const [name, setName] = useState("");

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../../constants/api.js";
-import Navbar from "../../components/navbar/navbar.jsx";
+import "../../styles/global.css"
 
 function EstoqueForm() {
     const { id_estoque } = useParams();
@@ -77,7 +77,7 @@ function EstoqueForm() {
 
     return (
         <>
-            <Navbar />
+            
             <div className="container mt-page">
                 <h2>{id_estoque ? "Editar Produto" : "Cadastrar Produto"}</h2>
                 <form onSubmit={handleSubmit}>

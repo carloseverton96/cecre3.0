@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import "./login.css";
-import logo from "../../assets/logo.png";
+import "../../styles/global.css"
+import logo from "/logo.png";
 import fundo from "../../assets/fundo.png";
 import { useState } from "react";
 import api from "../../constants/api.js";
@@ -49,7 +49,7 @@ function Login() {
         <div className="col-sm-5 d-flex justify-content-center align-items-center text-center">
 
             <form className="form-signin">
-                <img src={logo} className="logo mb-4" />
+                {/* <img src={logo} className="logo mb-4 170px" /> */}
                 <h5 className="mb-5">Gerencie seus agendamentos de forma descomplicada.</h5>
                 <h5 className="mb-4 text-secondary">Acesse sua conta</h5>
 

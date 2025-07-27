@@ -1,71 +1,45 @@
-import "./navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/logo-white.png";
-import api from "../../constants/api";
 
-function Navbar() {
+export default function Navbar() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  // Função de logout
+  const handleLogout = () => {
+    // Limpar dados de autenticação (exemplo com localStorage)
+    localStorage.removeItem("authToken");
 
-    function Logout() {
-        localStorage.removeItem("sessionToken");
-        localStorage.removeItem("sessionId");
-        localStorage.removeItem("sessionEmail");
-        localStorage.removeItem("sessionName");
+    // Redirecionar o usuário para a página de login
+    navigate("/login");
+  };
 
-        navigate("/");
-        api.defaults.headers.common['Authorization'] = "";
-    }
-
-    return <nav className="navbar fixed-top navbar-expand-lg bg-primary" data-bs-theme="dark">
-
-        <div className="container-fluid">
-            <Link className="navbar-brand" to="/appointments">
-                <img className="navbar-logo" src={logo} />
-            </Link>
-
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
-                        <Link className="nav-link active" to="/appointments">Agendamentos</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link active" to="/doctors">Médicos</Link>
-                    </li>
-                    <li>
-                        <Link className="nav-link active" to="/servicos">Editar Serviços</Link>
-                    </li>
-                    <li>
-                        <Link className="nav-link active" to="/account">Cadastrar cliente</Link>
-                    </li>
-                    <li>
-                        <Link className="nav-link active" to="/users">Editar cliente</Link>
-                    </li>
-                </ul>
-
-                <ul className="navbar-nav ">
-                    <li className="nav-item">
-                        <div className="btn-group">
-                            <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                {localStorage.getItem("sessionName")}
-                            </button>
-                            <ul className="dropdown-menu dropdown-menu-end">
-                                <li><Link className="dropdown-item" to="#">Meu Perfil</Link></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><button className="dropdown-item" onClick={Logout}>Desconectar</button></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-
+  return (
+    <nav style={{ background: "#1f2937", color: "white", padding: "10px" }}>
+      <ul style={{ display: "flex", listStyle: "none", gap: "15px" }}>
+        <li>
+          <Link to="/account" style={{ color: "white" }}>Account</Link>
+        </li>
+        <li>
+          <Link to="/users" style={{ color: "white" }}>Users</Link>
+        </li>
+        <li>
+          <Link to="/estoque" style={{ color: "white" }}>Estoque</Link>
+        </li>
+        <li>
+          <button
+            onClick={handleLogout}
+            style={{
+              background: "none",
+              color: "white",
+              border: "none",
+              padding: "none",
+              cursor: "pointer",
+              fontSize: "16px",
+            }}
+          >
+            Logout
+          </button>
+        </li>
+      </ul>
     </nav>
+  );
 }
-
-export default Navbar;
