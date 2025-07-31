@@ -1,3 +1,6 @@
+//páginas privadas (users)
+// navbar.jsx
+
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
@@ -25,9 +28,13 @@ export default function Navbar() {
           <Link to="/estoque" style={{ color: "white" }}>Estoque</Link>
         </li>
         <li>
-          <Link to="/news/create" style={{ color: "white" }}>Criar Post</Link>
+          <Link to="users/news" style={{ color: "white" }}>Criar Post</Link>
+        </li>
+        <li>
+          <Link to="/news" style={{ color: "white" }}>vizualizar Post</Link>
         </li>
         
+
         <li>
           <button
             onClick={handleLogout}

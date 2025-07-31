@@ -1,33 +1,44 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-//npx prisma generate ()
-//npx prisma migrate dev --name <nome_da_migracao>
-//npx prisma migrate dev 
+// schema.prisma
 
 generator client {
   provider = "prisma-client-js"
-  output   = "./prisma"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "postgresql"  // ou "sqlite" ou o banco que você usa
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id_user    String   @id @default(uuid())
+  id_user    Int      @id @default(autoincrement())
   name       String
   email      String   @unique
   password   String
-  user_type  String   @default("user") // valores: "user", "admin"
+  user_type  String
   created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // Se quiser relacionar notícias ao usuário, pode adicionar:
+  // news       News[]  @relation("UserNews")
+}
+
+model Estoque {
+  id_estoque   Int      @id @default(autoincrement())
+  product_name String
+  quantidade   Int
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+}
+
+model News {
+  id_news    Int      @id @default(autoincrement())
+  title      String
+  content    String
+  image      String?   // opcional
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+
+  // Se quiser relacionar a notícia a um usuário (autor):
+  // authorId Int?
+  // author   User? @relation(fields: [authorId], references: [id_user])
 }

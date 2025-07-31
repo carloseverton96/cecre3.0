@@ -3,7 +3,6 @@ import "../../styles/global.css";
 import { useState } from "react";
 import api from "../../constants/api.js";
 
-
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("carloseverton1995@gmail.com");
@@ -12,34 +11,38 @@ export default function Login() {
 
   async function ExecuteLogin() {
     setMsg("");
-
     try {
       const response = await api.post("/users/login", {
         email,
         password,
       });
 
-      if (response.data) {
-        localStorage.setItem("sessionToken", response.data.token);
-        localStorage.setItem("sessionId", response.data.id_admin);
-        localStorage.setItem("sessionEmail", response.data.email);
-        localStorage.setItem("sessionName", response.data.name);
-        api.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
-        navigate("/estoque");
-      } else {
-        setMsg("Erro ao efetuar login. Tente novamente mais tarde.");
+      const { token, id_admin, email: userEmail, name } = response.data;
+
+      if (!token) {
+        setMsg("Token não recebido. Verifique suas credenciais.");
+        return;
       }
+
+      // ✅ Salva com chaves consistentes
+      localStorage.setItem("token", token);
+      localStorage.setItem("sessionId", id_admin);
+      localStorage.setItem("sessionEmail", userEmail);
+      localStorage.setItem("sessionName", name);
+
+      // ✅ Define o header de autorização global
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+      // ✅ Redireciona
+      navigate("/estoque");
     } catch (error) {
-      if (error.response?.data.error)
-        setMsg(error.response?.data.error);
-      else
-        setMsg("Erro ao efetuar login. Tente novamente mais tarde.");
+      const errorMsg = error.response?.data?.error || "Erro ao efetuar login. Tente novamente.";
+      setMsg(errorMsg);
     }
   }
 
   return (
     <div className="main-content">
-      
       <h1>Acesse sua conta</h1>
 
       <section>
@@ -69,16 +72,18 @@ export default function Login() {
           </button>
         </div>
 
-        {msg.length > 0 && (
+        {msg && (
           <div className="alert alert-danger" role="alert">
             {msg}
           </div>
         )}
 
         <div>
-          <span className="me-1">Não tenho uma conta. </span>
-          <Link to="/register">Criar agora!</Link>
+          <span className="me-1">Acesso restrito aos administradores. </span>
+          <p><Link to="/register">Criar conta agora!</Link></p>
+          <p><Link to="/">Voltar à página inicial.</Link></p>
         </div>
+
       </section>
     </div>
   );

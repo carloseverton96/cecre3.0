@@ -1,17 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-//npx prisma generate ()
-//npx prisma migrate dev --name <nome_da_migracao>
-//npx prisma migrate dev 
+// This is your Prisma schema file
+// Docs: https://pris.ly/d/prisma-schema
 
 generator client {
   provider = "prisma-client-js"
@@ -30,4 +18,19 @@ model User {
   password   String
   user_type  String   @default("user") // valores: "user", "admin"
   created_at DateTime @default(now())
+
+  // Relacionamento com News (um usuário pode ter várias notícias)
+  news News[]
+}
+
+model News {
+  id_news String   @id @default(uuid())
+  title   String
+  summary String
+  date    DateTime @default(now())
+  image   String
+
+  // Relacionamento com User (cada notícia pertence a um usuário)
+  id_user String
+  user    User   @relation(fields: [id_user], references: [id_user])
 }
