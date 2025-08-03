@@ -3,7 +3,7 @@ import "../../styles/global.css";
 export default function Publicas() {
   return (
     <div className="main-content">
-      <h1>Atividades desenvolvidas pela comunhão espírita Cristo Redentor</h1>
+      <h1>Atividades desenvolvidas pela Comunhão Espírita Cristo Redentor</h1>
 
       <section>
         <table>

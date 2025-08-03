@@ -6,17 +6,14 @@ import {
   User,
   Settings,
   Package,
+  MenuIcon,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../../styles/global.css";
 
-export default function Sidebar() {
-  const [collapsed, setCollapsed] = useState(() => {
-    const saved = localStorage.getItem("sidebar-collapsed");
-    return saved === "true";
-  });
 
+export default function Sidebar({ collapsed, setCollapsed, isOpen = true, onClose }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -35,20 +32,19 @@ export default function Sidebar() {
       localStorage.removeItem("sessionId");
       localStorage.removeItem("sessionEmail");
       localStorage.removeItem("sessionName");
-      navigate("/login"); // Redireciona para login
-      window.location.reload(); // Garante limpeza de estado (opcional)
+      navigate("/login");
     }
   };
 
   // ✅ Itens do menu
   const menuItems = [
     { to: "/", label: "Início", icon: <LayoutDashboard size={20} /> },
-    { to: "/biografias", label: "Biografias", icon: <User size={20} /> },
+    { to: "/news", label: "Notícias", icon: <User size={20} /> },
+    { to: "/publicas", label: "Públicas", icon: <Settings size={20} /> },
     { to: "/educacionais", label: "Educacionais", icon: <BookOpen size={20} /> },
     { to: "/mediunicas", label: "Mediúnicas", icon: <Package size={20} /> },
-    { to: "/publicas", label: "Públicas", icon: <Settings size={20} /> },
     { to: "/sociais", label: "Sociais", icon: <User size={20} /> },
-    { to: "/news", label: "Notícias", icon: <User size={20} /> },
+    { to: "/biografias", label: "Biografias", icon: <User size={20} /> },
   ];
 
   // ✅ Último item: Login ou Logout
@@ -66,25 +62,29 @@ export default function Sidebar() {
         isLogout: false,
       };
 
+  // Não renderiza em mobile se não estiver aberta
+  if (!isOpen) return null;
+
   return (
     <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
       <div className="title">
-        {!collapsed && "Menu"}
+        <span>{!collapsed && "Menu"}</span>
         <button
-          onClick={() => setCollapsed(!collapsed)}
-          style={{
-            float: "right",
-            background: "#8dc8ffff",
-            border: "none",
-            color: "inherit",
-            cursor: "pointer",
+          onClick={() => {
+            // Em mobile, fecha a sidebar
+            if (window.innerWidth <= 768) {
+              onClose();
+            } else {
+              setCollapsed(!collapsed);
+            }
           }}
+          aria-label={collapsed ? "Expandir menu" : "Recolher menu"}
         >
-          <Menu size={20} />
+          <MenuIcon size={20} />
         </button>
       </div>
 
-      <nav style={{ padding: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+      <nav>
         {/* Itens principais */}
         {menuItems.map(({ to, label, icon }) => {
           const isActive = pathname === to;
@@ -92,12 +92,15 @@ export default function Sidebar() {
             <Link
               key={to}
               to={to}
-              style={{
-                color: isActive ? "#b2e1f5ff" : "#5e5e5eff",
-                fontWeight: isActive ? "bold" : "normal",
+              onClick={() => {
+                // Fecha a sidebar em mobile ao clicar
+                if (window.innerWidth <= 768) {
+                  onClose();
+                }
               }}
+              className={isActive ? "active" : ""}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <div>
                 {icon}
                 {!collapsed && <span>{label}</span>}
               </div>
@@ -108,31 +111,30 @@ export default function Sidebar() {
         {/* Item de login/logout */}
         {authItem.isLogout ? (
           <button
-            onClick={authItem.action}
-            style={{
-              background: "none",
-              border: "none",
-              color: "#5e5e5eff",
-              textAlign: "left",
-              cursor: "pointer",
-              padding: "0",
-              margin: "0",
+            onClick={() => {
+              authItem.action();
+              if (window.innerWidth <= 768) {
+                onClose();
+              }
             }}
+            className="auth-button"
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <div>
               {authItem.icon}
-              {!collapsed && <span>Logout</span>}
+              {!collapsed && <span>{authItem.label}</span>}
             </div>
           </button>
         ) : (
           <Link
             to={authItem.to}
-            style={{
-              color: pathname === "/login" ? "#b2e1f5ff" : "#5e5e5eff",
-              fontWeight: pathname === "/login" ? "bold" : "normal",
+            onClick={() => {
+              if (window.innerWidth <= 768) {
+                onClose();
+              }
             }}
+            className={pathname === "/login" ? "active" : ""}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <div>
               {authItem.icon}
               {!collapsed && <span>{authItem.label}</span>}
             </div>

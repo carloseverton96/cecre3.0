@@ -1,46 +1,47 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ErrorBoundary from "./components/errorboundary/ErrorBoundary.jsx";
+
+
+
 
 // Layouts
 import LayoutSidebar from "./LayoutSidebar.jsx";
-import LayoutNavbar from "./Layoutnavbar.jsx";
+import LayoutNavbar from "./LayoutNavbar.jsx";
 
-// Páginas sem layout
-import Login from "./pages/login/login.jsx";
-import Register from "./pages/register/register.jsx";
-
-// Páginas com Sidebar
-import Home from "./pages/inicio/Home.jsx";
-import Biografias from "./pages/inicio/Biografias.jsx";
-import Mediunicas from "./pages/inicio/Mediunicas.jsx";
-import Educacionais from "./pages/inicio/Educacionais.jsx";
-import Publicas from "./pages/inicio/Publicas.jsx";
-import Sociais from "./pages/inicio/Sociais.jsx";
-import Noticias from "./pages/inicio/Noticias.jsx";
-
-// Páginas com Navbar
-import Account from "./pages/account/account.jsx";
-import Users from "./pages/users/users.jsx";
-import EditUser from "./pages/edituser/edituser.jsx";
-import EstoqueForm from "./pages/estoque/estoque.jsx";
-import NewsForm from "./pages/news/NewsForm.jsx";
-import VisualizarNoticia from "./pages/inicio/VisualizarNoticia.jsx";
-
-
+// [O restante dos imports permanece igual]
+import Biografias from './pages/inicio/Biografias';
+import Mediunicas from './pages/inicio/Mediunicas';
+import Educacionais from './pages/inicio/Educacionais';
+import Publicas from './pages/inicio/Publicas';
+import Sociais from './pages/inicio/Sociais';
+import Noticias from './pages/inicio/Noticias';
+import VisualizarNoticia from './pages/inicio/VisualizarNoticia';
+import Login from './pages/login/login';
+import Register from './pages/register/register';
+import Account from './pages/account/account';
+import EstoqueForm from './pages/estoque/estoque';
+import NewsForm from './pages/news/NewsForm';
+import HomeAdmin from './pages/homeadmin/HomeAdmin';
+import Home from './pages/inicio/Home.jsx';
 
 function Rotas() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Layout Público: Sidebar */}
-        <Route path="/" element={<LayoutSidebar />}>
+        {/* Layout Público: Sidebar com Error Boundary */}
+        <Route path="/" element={
+          <ErrorBoundary>
+            <LayoutSidebar />
+          </ErrorBoundary>
+        }>
           <Route index element={<Home />} />
           <Route path="biografias" element={<Biografias />} />
           <Route path="mediunicas" element={<Mediunicas />} />
           <Route path="educacionais" element={<Educacionais />} />
           <Route path="publicas" element={<Publicas />} />
           <Route path="sociais" element={<Sociais />} />
-          <Route path="news" element={<Noticias />} /> {/* ✅ Sem / */}
-          <Route path="visualizar" element={<VisualizarNoticia />} /> {/* ✅ Nova rota para visualizar notícia */}
+          <Route path="news" element={<Noticias />} /> 
+          <Route path="visualizar" element={<VisualizarNoticia />} /> 
         </Route>
 
         {/* Páginas sem layout */}
@@ -50,11 +51,9 @@ function Rotas() {
         {/* Layout Privado: Navbar */}
         <Route element={<LayoutNavbar />}>
           <Route path="/account" element={<Account />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/users/edit/:id_user" element={<EditUser />} />
           <Route path="/estoque" element={<EstoqueForm />} />
           <Route path="/users/news" element={<NewsForm />} />
-          
+          <Route path="/homeadmin" element={<HomeAdmin />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -34,7 +34,7 @@ export default function Login() {
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
       // ✅ Redireciona
-      navigate("/estoque");
+      navigate("/homeadmin");
     } catch (error) {
       const errorMsg = error.response?.data?.error || "Erro ao efetuar login. Tente novamente.";
       setMsg(errorMsg);

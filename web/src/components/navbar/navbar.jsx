@@ -18,14 +18,17 @@ export default function Navbar() {
   return (
     <nav style={{ background: "#1f2937ff", color: "white", padding: "10px" }}>
       <ul style={{ display: "flex", listStyle: "none", gap: "15px" }}>
-        <li>
+        {/* <li>
           <Link to="/account" style={{ color: "white" }}>Account</Link>
         </li>
         <li>
           <Link to="/users" style={{ color: "white" }}>Users</Link>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <Link to="/estoque" style={{ color: "white" }}>Estoque</Link>
+        </li> */}
+        <li>
+          <Link to="homeadmin" style={{ color: "white" }}>Manual</Link>
         </li>
         <li>
           <Link to="users/news" style={{ color: "white" }}>Criar Post</Link>

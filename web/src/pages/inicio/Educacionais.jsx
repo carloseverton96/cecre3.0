@@ -4,7 +4,7 @@ import React from "react";
 export default function Educacionais() {
   return (
     <main className="main-content">
-      <h1>Educação Espírita na Comunhão</h1>
+      <h1>Educação Espírita na Comunhão Espírita Cristo Redentor</h1>
 
       <section>
         <h2>Evangelização Infantil na Doutrina Espírita</h2>

@@ -3,11 +3,8 @@ import "../../styles/global.css";
 export default function Biografias() {
   return (
     <div className="main-content">
-      <h1>Campanha de Fraternidade Auta de Souza</h1>
-      <p>
-        A Campanha de Fraternidade Auta de Souza é uma iniciativa do movimento espírita, realizado também pela Comunhão Espírita Cristo Redentor que visa promover a fraternidade e a solidariedade entre os seres humanos. A campanha é realizada mensalmente, no segundo e no último domingo do mês às 07:30h, e é aberta a todos.
-      </p>
-
+      <h1>Biografias</h1>
+      
       {/* Biografias */}
 
       <h2>Allan Kardec</h2>
@@ -208,7 +205,8 @@ export default function Biografias() {
       <h2>Gabriel Delanne</h2>
       <p>
         François-Marie Gabriel Delanne nasceu em Paris, França, em 23 de março de 1857. Foi um engenheiro eletricista, pesquisador espírita e escritor. Delanne era filho de pais espíritas convictos e praticantes, sendo o seu pai um engenheiro civil. A sua formação científica e técnica foi um contributo importante para a investigação dos fenômenos espíritas. Delanne foi um dos principais pesquisadores do espiritismo francês. Ele escreveu diversos livros sobre a doutrina, incluindo <em>"L'Électricité spirite"</em>, <em>"Le Phénomène spirite"</em>, <em>"Le Spiritisme et la science"</em>, entre outros. Delanne acreditava que o espiritismo era uma doutrina científica e que os fenômenos mediúnicos podiam ser estudados e comprovados. Ele realizou diversas pesquisas sobre os fenômenos físicos da mediunidade e publicou seus resultados em livros e artigos científicos. Delanne foi um dos fundadores da Sociedade Espírita de Paris e também participou ativamente do movimento espírita internacional. Suas obras são consideradas clássicos do espiritismo e são ainda hoje lidas e estudadas por pesquisadores de todo o mundo.
-      </p>
+      </p>import Biografias from './Biografias';
+
       <p><strong>Referências:</strong></p>
       <ul>
         <li>DELANNE, Gabriel. <em>L'Électricité spirite</em>. Paris: Bibliothèque Spirite, 1890.</li>
