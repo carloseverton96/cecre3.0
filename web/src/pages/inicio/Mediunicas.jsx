@@ -4,67 +4,78 @@ import React from "react";
 export default function Mediunicas() {
   return (
     <main className="main-content">
-      <h1>Comunhão Espírita Cristo Redentor</h1>
+      
 
       <section>
-        <h2>História</h2>
+        <h1>Mediunidade à luz da Doutrina Espírita</h1>
+        <p class="subtitle">Conceito e manifestação</p>
+      
+     
+        <h2>Conceito</h2>
         <p>
-          Fundada em 18 de julho de 1988, a Comunhão Espírita Cristo Redentor – CECRE tem como finalidade o estudo, a difusão e a prática do Espiritismo no seu tríplice aspecto, tendo como lema: Liberdade, Igualdade e Fraternidade.
+          A mediunidade é a faculdade que permite a comunicação entre os espíritos e os encarnados.
+          É uma faculdade inerente a todos os seres humanos, independentemente de religião, crença ou cultura.
         </p>
-        <p>
-          Em seus 35 anos de existência, o CECRE realizou diversas atividades para a difusão do Espiritismo e ainda executa: palestras públicas, estudo sistematizado da Doutrina Espírita, estudo aprofundado, estudo mediúnico, harmonização dos trabalhadores, atendimento fraterno, Campanha de Fraternidade Auta de Souza, assistência a moradores de rua, Clube das Mães e evangelização infantojuvenil.
-        </p>
-      </section>
+      
 
       <section>
-        <h2>O Passe</h2>
-        <p>
-          O passe na casa espírita é uma prática espiritual que consiste na imposição das mãos com a intenção de transmitir energias positivas ao paciente. É uma forma de cura espiritual que pode aliviar sofrimentos físicos e emocionais.
-        </p>
-        <h3>Como funciona?</h3>
-        <p>
-          Realizado por um médium passista, treinado para essa tarefa, o passe envolve a colocação das mãos sobre o paciente, em diferentes partes do corpo, com concentração em transmitir paz e harmonia.
-        </p>
-        <h3>Finalidade</h3>
-        <p>
-          O objetivo do passe é promover cura física e emocional, aliviar dores e proporcionar bem-estar.
-        </p>
-      </section>
-
-      <section>
-        <h2>Evangelho no Lar</h2>
-
-        <img
-          src="/evangelho.png"
-          alt="Evangelho no Lar"
-          style={{ width: "120px", height: "auto", marginBottom: "1rem" }}
-        />
-
-        <h3>Roteiro Prático</h3>
-        <p>
-          O Evangelho no Lar é uma reunião familiar semanal para leitura e reflexão sobre os ensinamentos cristãos. Promove crescimento espiritual e equilíbrio no ambiente doméstico.
-        </p>
-        <p>
-          Para implantá-lo: converse com a família, defina dia e horário, escolha uma mensagem inicial, leia o Evangelho Segundo o Espiritismo (aleatória ou sequencialmente), reflita sobre o texto e finalize com uma prece. Deixe uma jarra com água para fluidificação. A prática dura cerca de 15 a 20 minutos.
-        </p>
-      </section>
-
-      <section>
-        <h2>Livraria</h2>
-        <p>
-          A Livraria da Comunhão Espírita Cristo Redentor oferece diversas obras espíritas, incluindo os clássicos de Allan Kardec:
-        </p>
+        <h2>Manifestações</h2>
+        <p>A mediunidade pode se manifestar de diversas formas, como:</p>
         <ul>
-          <li><b>O Livro dos Espíritos</b> – obra fundamental do espiritismo;</li>
-          <li><b>O Livro dos Médiuns</b> – trata da mediunidade;</li>
-          <li><b>O Evangelho Segundo o Espiritismo</b> – estudo moral cristão à luz da doutrina;</li>
-          <li><b>O Céu e o Inferno</b> – reflexões sobre a vida após a morte;</li>
-          <li><b>A Gênese</b> – aborda a origem do universo e da humanidade.</li>
+          <li><strong>Psicofonia:</strong> manifestação da voz dos espíritos através do médium.</li>
+          <li><strong>Psicografia:</strong> manifestação da escrita dos espíritos através do médium.</li>
+          <li><strong>Vidência:</strong> capacidade de ver os espíritos.</li>
+          <li><strong>Audiência:</strong> capacidade de ouvir os espíritos.</li>
+          <li><strong>Intuição:</strong> capacidade de receber ideias e informações dos espíritos.</li>
+          <li><strong>Premonição:</strong> capacidade de prever acontecimentos futuros.</li>
         </ul>
+      </section>
+
+      <section>
+        <h2>Desenvolvimento da mediunidade</h2>
         <p>
-          Também há diversas outras obras disponíveis. Visite a Biblioteca Chico Xavier, onde você pode pegar livros emprestados para leitura e devolução.
+          O desenvolvimento da mediunidade é um processo individual, que ocorre de acordo com a predisposição
+          do médium e com o seu grau de evolução espiritual.
+        </p>
+        <p>Para desenvolver a mediunidade, é importante:</p>
+        <ol>
+          <li><strong>Estudar a Doutrina Espírita:</strong> o conhecimento é essencial para que o médium compreenda a natureza da mediunidade e se proteja de influências negativas.</li>
+          <li><strong>Ter um bom desenvolvimento moral:</strong> cultivar virtudes e evitar vícios para manter equilíbrio e harmonia com os espíritos.</li>
+          <li><strong>Discernir as orientações dos espíritos:</strong> respeitar e seguir as orientações dos espíritos superiores para um desenvolvimento seguro e produtivo.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Importância do médium esclarecido</h2>
+        <p>O médium esclarecido é aquele que compreende a natureza da mediunidade e se dedica a utilizá-la para o bem.</p>
+        <p>O médium esclarecido é responsável por:</p>
+        <ul>
+          <li>Transmitir mensagens dos espíritos de forma clara e objetiva.</li>
+          <li>Ajudar os espíritos desencarnados em seu processo de evolução.</li>
+          <li>Promover a paz e a fraternidade entre os homens.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Trabalho de vibração mediúnica</h2>
+        <p>
+          O trabalho de vibração é uma forma de mediunidade que consiste em emitir pensamentos e sentimentos positivos
+          com o objetivo de ajudar. Essa prática parte da ideia de que pensamentos e sentimentos positivos são vibrações
+          que podem ser sentidas por espíritos encarnados e desencarnados. Ao emitirmos pensamentos e sentimentos positivos,
+          contribuímos para elevar a vibração desses espíritos e facilitar seu progresso espiritual. É um ato de amor e compaixão.
         </p>
       </section>
+
+      
+        <h3>Referências</h3>
+        <ul>
+          <li>KARDEC, Allan. <em>O Livro dos Médiuns</em>. 7. ed. São Paulo: FEB, 2019.</li>
+          <li>KARDEC, Allan. <em>O Evangelho Segundo o Espiritismo</em>. 7. ed. São Paulo: FEB, 2019.</li>
+          <li>KARDEC, Allan. <em>O Livro dos Espíritos</em>. 7. ed. São Paulo: FEB, 2019.</li>
+        </ul>
+      
+      </section>
+
     </main>
   );
 }

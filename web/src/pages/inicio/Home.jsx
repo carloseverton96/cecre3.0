@@ -1,4 +1,5 @@
 import "../../styles/global.css";
+import evangelho from "../../assets/evangelho.png";
 import React from "react";
 
 export default function Home() {
@@ -38,10 +39,10 @@ export default function Home() {
         <h2>Evangelho no Lar</h2>
 
         <img
-          src="/evangelho.png"
-          alt="Evangelho no Lar"
-          style={{ width: "120px", height: "auto", marginBottom: "1rem" }}
-        />
+              src={evangelho}
+              alt="Segundo passo da solicitação"
+              className="mb-2 w-full max-w-[100px] mx-auto"
+            />
 
         <h3>Roteiro prático</h3>
         <p>

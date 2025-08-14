@@ -80,7 +80,7 @@ export default function Login() {
 
         <div>
           <span className="me-1">Acesso restrito aos administradores. </span>
-          <p><Link to="/register">Criar conta agora!</Link></p>
+          {/* <p><Link to="/register">Criar conta agora!</Link></p> */}
           <p><Link to="/">Voltar à página inicial.</Link></p>
         </div>
 

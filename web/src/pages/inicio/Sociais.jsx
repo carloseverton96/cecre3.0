@@ -1,4 +1,5 @@
 import "../../styles/global.css";
+import autadesouza from "../../assets/autadesouza.png";
 
 export default function Sociais() {
   return (
@@ -28,15 +29,13 @@ export default function Sociais() {
           casa.
         </p>
 
-        {/* 
+         
         <img
-          alt="Campanha Auta de Souza"
-          src="/autadesouza.jpeg"
-          width={500}
-          height={500}
-          className=""
-        />
-        */}
+                      src={autadesouza}
+                      alt="Segundo passo da solicitação"
+                      className="mb-2  max-w-[50px]"
+                    />
+        
       </section>
     </div>
   );
